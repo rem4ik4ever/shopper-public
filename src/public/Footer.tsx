@@ -13,7 +13,8 @@ export const Footer = () => (
         </div>
       </div>
       <div className="text-center text-white">
-        © 2021 - Shopper - Сделано c ❤ для Кыргызстана
+        © 2021 - Shopper - Сделано c{' '}
+        <span className="text-red-400 mx-1">❤</span> для Кыргызстана
       </div>
     </div>
   </footer>
