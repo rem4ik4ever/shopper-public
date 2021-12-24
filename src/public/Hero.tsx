@@ -4,7 +4,10 @@ import dashboardImg from '../../public/assets/dashboard.png';
 import Link from '../Link';
 import { Logo } from './Logo';
 
-export const Hero = () => (
+interface HeroProps {
+  onNav: (name: string) => (ev: any) => void;
+}
+export const Hero = ({ onNav }: HeroProps) => (
   <section className="text-typography p-3 h-[100vh] overflow-hidden text-white relative bg-accent1">
     <header className="sticky top-0 p-3 container mx-auto flex justify-between items-center text-lg">
       <Link href="/" passHref>
@@ -14,10 +17,13 @@ export const Hero = () => (
         </div>
       </Link>
       <nav className="text-white gap-4 hidden sm:flex">
-        <Link href="/#">О платформе</Link>
-        <Link href="/#">Менеджмент</Link>
-        <Link href="/#">Тарифы</Link>
-        <Link href="/#">Контакты</Link>
+        <Link href="/#" onClick={onNav('platform')}>
+          О платформе
+        </Link>
+        <Link href="/#" onClick={onNav('management')}>
+          Менеджмент
+        </Link>
+        <Link href="/contact">Контакты</Link>
       </nav>
     </header>
     <div className="container mx-auto flex flex-col justify-center">
@@ -45,9 +51,15 @@ export const Hero = () => (
           </div>
         </form>
       </div>
-      <div className="border rounded-md shadow-xl overflow-hidden">
-        <Image src={dashboardImg} alt="product dashboard" />
-      </div>
+      <Image
+        className="border rounded-md shadow-xl overflow-hidden"
+        src={dashboardImg}
+        alt="product dashboard"
+      />
     </div>
   </section>
 );
+
+Hero.defaultProps = {
+  onNav: () => {},
+};
