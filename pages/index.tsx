@@ -16,7 +16,6 @@ const Home: NextPage = function () {
   const aboutPlatformRef = useRef() as React.MutableRefObject<HTMLDivElement>;
   const managementRef = useRef() as React.MutableRefObject<HTMLDivElement>;
   const onNav = (section: string) => (ev: MouseEvent) => {
-    console.log('On nav', section);
     ev.preventDefault();
     switch (section) {
       case 'platform':
