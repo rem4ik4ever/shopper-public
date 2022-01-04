@@ -64,8 +64,10 @@ export const Hero = ({ onNav }: HeroProps) => {
           </h1>
           {showConfirmation ? (
             <div className="p-3 my-6">
-              <h2 className="text-2xl">Регистрация успешна ✅</h2>
-              <p className="text-xl ">
+              <h2 className="text-2xl text-gray-200 max-w-[450px] mx-auto my-2">
+                Спасибо ✅
+              </h2>
+              <p className="text-gray-200 max-w-[450px] mx-auto my-2">
                 Мы оповестим вас о запуске раннего доступа.
               </p>
             </div>
@@ -78,7 +80,10 @@ export const Hero = ({ onNav }: HeroProps) => {
               }}
             >
               <div className="text-2xl text-gray-200 max-w-[450px] mx-auto my-2">
-                Стань первым кто получит доступ к раннему запуску!
+                Заинтересованы? 
+              </div>
+              <div className="text-gray-200 max-w-[450px] mx-auto my-2">
+                Оставьте свою почту и мы свяжемся с вами при запуске плюс месяц бесплатного пользования! 
               </div>
               <div className="flex flex-col sm:flex-row gap-2 justify-center">
                 <input
@@ -93,7 +98,7 @@ export const Hero = ({ onNav }: HeroProps) => {
                   type="submit"
                   disabled={isSubmitting}
                 >
-                  Зарегистрироваться
+                  Отправить
                 </button>
               </div>
             </form>
