@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import { FormEvent } from 'react';
 import dashboardImg from '../../public/assets/dashboard.png';
 import Link from '../Link';
 import { Logo } from './Logo';
