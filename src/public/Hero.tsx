@@ -46,14 +46,16 @@ export const Hero = ({ onNav }: HeroProps) => {
             <span className="text-xl ml-1">Shopper</span>
           </div>
         </Link>
-        <nav className="text-white gap-4 hidden sm:flex">
+        <nav className="text-white gap-4 hidden sm:flex items-center">
           <Link href="/#" onClick={onNav('platform')}>
             О платформе
           </Link>
           <Link href="/#" onClick={onNav('management')}>
             Менеджмент
           </Link>
-          <Link href="/contact">Контакты</Link>
+          <a className="border-white border px-3 py-2 rounded-md " href="https://forms.gle/PL1B3cU7R7t8trHN9" target="_blank" rel="noreferrer">
+            Есть вопросы?
+          </a>
         </nav>
       </header>
       <div className="container mx-auto flex flex-col justify-center">
