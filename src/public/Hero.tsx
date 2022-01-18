@@ -46,13 +46,21 @@ export const Hero = ({ onNav }: HeroProps) => {
           </div>
         </Link>
         <nav className="text-white gap-4 hidden sm:flex items-center">
+          <a href="https://demo.shopper.kg" target="_blank" rel="noreferrer">
+            Демо магазин
+          </a>
           <Link href="/#" onClick={onNav('platform')}>
             О платформе
           </Link>
           <Link href="/#" onClick={onNav('management')}>
             Менеджмент
           </Link>
-          <a className="border-white border px-3 py-2 rounded-md " href="https://forms.gle/PL1B3cU7R7t8trHN9" target="_blank" rel="noreferrer">
+          <a
+            className="border-white border px-3 py-2 rounded-md "
+            href="https://forms.gle/PL1B3cU7R7t8trHN9"
+            target="_blank"
+            rel="noreferrer"
+          >
             Есть вопросы?
           </a>
         </nav>
@@ -81,10 +89,11 @@ export const Hero = ({ onNav }: HeroProps) => {
               }}
             >
               <div className="text-2xl text-gray-200 max-w-[450px] mx-auto my-2">
-                Заинтересованы? 
+                Заинтересованы?
               </div>
               <div className="text-gray-200 max-w-[450px] mx-auto my-2">
-                Оставьте свою почту и мы свяжемся с вами при запуске плюс месяц бесплатного пользования! 
+                Оставьте свою почту и мы свяжемся с вами при запуске плюс месяц
+                бесплатного пользования!
               </div>
               <div className="flex flex-col sm:flex-row gap-2 justify-center">
                 <input

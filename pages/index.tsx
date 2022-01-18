@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useRef } from 'react';
 import { AboutProduct } from 'src/public/AboutProduct';
+import { DemoCTA } from 'src/public/DemoCTA';
 import { Footer } from 'src/public/Footer';
 import { Hero } from 'src/public/Hero';
 import { InventoryManagement } from 'src/public/InventoryManagement';
@@ -64,6 +65,7 @@ const Home: NextPage = function () {
       </Head>
       <main>
         <Hero onNav={onNav} />
+        <DemoCTA />
         <div ref={aboutPlatformRef}>
           <AboutProduct />
         </div>
