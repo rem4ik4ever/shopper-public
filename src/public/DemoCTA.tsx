@@ -1,7 +1,7 @@
 export const DemoCTA = () => {
   return (
-    <div className="container mx-auto">
-      <div className="rounded-lg bg-accent1 text-white p-8 my-6 flex flex-col md:flex-row space-between items-center justify-between relative overflow-hidden">
+    <div className="">
+      <div className="bg-accent1 text-white p-8 flex flex-col md:flex-row space-between items-center justify-between relative overflow-hidden">
         <div className="flex flex-col lg:ml-14 xl:ml-28 max-w-sm lg:max-w-xl z-10">
           <h4 className="text-4xl text-center md:text-left font-bold text-white md:pb-2">
             Как выглядит онлайн магазин?

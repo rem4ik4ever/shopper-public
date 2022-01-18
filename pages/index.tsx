@@ -65,10 +65,10 @@ const Home: NextPage = function () {
       </Head>
       <main>
         <Hero onNav={onNav} />
-        <DemoCTA />
         <div ref={aboutPlatformRef}>
           <AboutProduct />
         </div>
+        <DemoCTA />
         <div ref={managementRef}>
           <InventoryManagement />
         </div>
