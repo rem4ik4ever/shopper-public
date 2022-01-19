@@ -69,7 +69,7 @@ export const Hero = ({ onNav }: HeroProps) => {
         <div className="mt-8 mb-8 text-center">
           <h1 className="text-3xl sm:text-6xl font-semibold">Платформа для</h1>
           <h1 className="text-3xl sm:text-6xl font-semibold">
-            твоего онлайн бизнеса
+            вашего онлайн магазина
           </h1>
           {showConfirmation ? (
             <div className="p-3 my-6">
