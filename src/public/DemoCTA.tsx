@@ -1,7 +1,7 @@
 export const DemoCTA = () => {
   return (
     <div className="">
-      <div className="bg-accent1 text-white p-8 flex flex-col md:flex-row space-between items-center justify-between relative overflow-hidden">
+      <div className="bg-accent1 text-white p-8 flex flex-col space-between items-center justify-between relative overflow-hidden">
         <div className="flex flex-col lg:ml-14 xl:ml-28 max-w-sm lg:max-w-xl z-10">
           <h4 className="text-4xl text-center md:text-left font-bold text-white md:pb-2">
             Как выглядит онлайн магазин?
@@ -16,12 +16,12 @@ export const DemoCTA = () => {
           </p>
         </div>
 
-        <div className="pt-8 md:pt-0 justify-center lg:ml-auto z-10">
+        <div className="pt-8 md:pt-0 z-10 text-center">
           <a
             href="https://demo.shopper.kg"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center px-8 py-4 text-center text-sm text-accent1 uppercase bg-white font-display rounded-full transition duration-200 hover:bg-accent2 hover:text-white"
+            className="flex items-center px-8 py-4 text-center text-lg text-accent1 uppercase bg-white font-display rounded-full transition duration-200 hover:bg-accent2 hover:text-white"
           >
             <span>Демо</span>
           </a>
