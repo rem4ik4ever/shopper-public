@@ -92,14 +92,14 @@ export const Hero = ({ onNav }: HeroProps) => {
                 Заинтересованы?
               </div>
               <div className="text-gray-200 max-w-[450px] mx-auto my-2">
-                Оставьте свою почту и мы свяжемся с вами при запуске плюс месяц
-                бесплатного пользования!
+                Оставьте своё имя и номер телефона и мы свяжемся с вами при
+                запуске плюс месяц бесплатного пользования!
               </div>
               <div className="flex flex-col sm:flex-row gap-2 justify-center">
                 <input
                   className="border p-3 rounded-md min-w-[300px] focus:outline outline-accent1 text-typography"
-                  type="email"
-                  placeholder="Электронная почта"
+                  type="text"
+                  placeholder="Номер телефона - Ваше имя"
                   value={email}
                   onChange={(ev) => setEmail(ev.target.value)}
                 />
