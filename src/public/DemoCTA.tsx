@@ -4,12 +4,12 @@ export const DemoCTA = () => {
       <div className="bg-accent1 text-white p-8 flex flex-col space-between items-center justify-between relative overflow-hidden">
         <div className="flex flex-col lg:ml-14 xl:ml-28 max-w-sm lg:max-w-xl z-10">
           <h4 className="text-4xl text-center md:text-left font-bold text-white md:pb-2">
-            Как выглядит онлайн магазин?
+            Как же выглядит Ваш онлайн магазин?
           </h4>
           <p className="text-center md:text-left text-white opacity-70 md:pb-6">
-            Вы можете посмотреть на демо магазин, где пользователь может
-            посмотреть на товары, коллекции, ложить вещи в карзину и оформить
-            заказ.
+            Вы можете посмотреть на демо версию магазина, где пользователь может
+            найти товары индивидуально или по категориям; поместить выбранное в
+            корзину и оформить заказ.
           </p>
           <p className="text-xs text-red-200 hidden md:block">
             <a href="https://demo.shopper.kg">demo.shopper.kg</a>

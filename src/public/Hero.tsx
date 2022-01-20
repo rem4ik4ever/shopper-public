@@ -92,8 +92,8 @@ export const Hero = ({ onNav }: HeroProps) => {
                 Заинтересованы?
               </div>
               <div className="text-gray-200 max-w-[450px] mx-auto my-2">
-                Оставьте своё имя и номер телефона и мы свяжемся с вами при
-                запуске плюс месяц бесплатного пользования!
+                Оставьте имя и номер телефона. Мы свяжемся с Вами при запуске и
+                предоставим месяц бесплатного пользования!
               </div>
               <div className="flex flex-col sm:flex-row gap-2 justify-center">
                 <input
