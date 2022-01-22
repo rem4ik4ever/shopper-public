@@ -28,7 +28,7 @@
 }
 
 .completed {
-  @apply bg-green text-white;
+  @apply bg-accent1 text-white;
 }
 
 .validationError {

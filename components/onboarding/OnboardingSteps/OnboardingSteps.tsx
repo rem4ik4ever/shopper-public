@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import { OnboardingStepEnum, StoreCreateEnum, useOnboarding } from '../context';
 import s from '../Onboarding.module.css';
+import { IoCheckmark } from 'react-icons/io5';
+
 export const OnboardingSteps = () => {
   const {
     currentStep,
@@ -13,27 +15,34 @@ export const OnboardingSteps = () => {
       <li
         className={cn(
           s.step,
-          currentStep === OnboardingStepEnum.USER_INFO && s.selected
+          currentStep === OnboardingStepEnum.USER_INFO && s.selected,
+          userInfoComplete && s.completed
         )}
       >
-        {userInfoComplete ? '✅' : 1}
+        {userInfoComplete ? <IoCheckmark size="30" /> : 1}
       </li>
       <li
         className={cn(
           s.step,
           s.lines,
-          currentStep === OnboardingStepEnum.STORE_INFO && s.selected
+          currentStep === OnboardingStepEnum.STORE_INFO && s.selected,
+          storeInfoComplete && s.completed
         )}
       >
-        {storeInfoComplete ? '✅' : 2}
+        {storeInfoComplete ? <IoCheckmark size="30" /> : 2}
       </li>
       <li
         className={cn(
           s.step,
-          currentStep === OnboardingStepEnum.CREATION && s.selected
+          currentStep === OnboardingStepEnum.CREATION && s.selected,
+          storeCreatedState === StoreCreateEnum.CREATED && s.completed
         )}
       >
-        {storeCreatedState === StoreCreateEnum.CREATED ? '✅' : 3}
+        {storeCreatedState === StoreCreateEnum.CREATED ? (
+          <IoCheckmark size="30" />
+        ) : (
+          3
+        )}
       </li>
     </ul>
   );
