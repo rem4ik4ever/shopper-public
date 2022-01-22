@@ -1,4 +1,4 @@
-import { Logo } from 'src/public/Logo';
+import { Logo, Logo2 } from 'src/public/Logo';
 
 export const Footer = () => (
   <footer className="bg-accent1">
@@ -6,7 +6,7 @@ export const Footer = () => (
       <div className="flex sm:flex-row flex-col mb-8">
         <div className="flex flex-col justify-center items-center">
           <div className="flex justify-center border-b border-white py-1 px-3 w-full">
-            <Logo size="30" />
+            <Logo2 size="30" />
             <span className="text-xl ml-1 text-white">Shopper</span>
           </div>
           <span className="text-white">Открой онлайн магазин</span>

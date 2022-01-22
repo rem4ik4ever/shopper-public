@@ -1,3 +1,5 @@
+import { Button } from '@components/ui';
+
 export const DemoCTA = () => {
   return (
     <div className="">
@@ -17,13 +19,8 @@ export const DemoCTA = () => {
         </div>
 
         <div className="pt-8 md:pt-0 z-10 text-center">
-          <a
-            href="https://demo.shopper.kg"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center px-8 py-4 text-center text-lg text-accent1 uppercase bg-white font-display rounded-full transition duration-200 hover:bg-accent2 hover:text-white"
-          >
-            <span>Демо</span>
+          <a href="https://demo.shopper.kg" target="_blank" rel="noreferrer">
+            <Button>Демо</Button>
           </a>
         </div>
 

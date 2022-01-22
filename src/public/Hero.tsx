@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import dashboardImg from '../../public/assets/dashboard.png';
 import Link from '../Link';
-import { Logo } from './Logo';
+import { Logo, Logo2 } from './Logo';
+import { Button } from '@components/ui';
 
 interface HeroProps {
   onNav: (name: string) => (ev: any) => void;
@@ -41,7 +42,8 @@ export const Hero = ({ onNav }: HeroProps) => {
       <header className="sticky top-0 p-3 container mx-auto flex justify-between items-center text-lg">
         <Link href="/" passHref>
           <div className="flex text-white items-center">
-            <Logo size="30" />
+            {/*<Logo size="30" />*/}
+            <Logo2 size="30" />
             <span className="text-xl ml-1">Shopper</span>
           </div>
         </Link>
@@ -103,13 +105,13 @@ export const Hero = ({ onNav }: HeroProps) => {
                   value={email}
                   onChange={(ev) => setEmail(ev.target.value)}
                 />
-                <button
-                  className="bg-accent2 text-white px-4 py-3 rounded-md"
+                <Button
+                  //className="bg-accent2 text-white px-4 py-3 rounded-md"
                   type="submit"
                   disabled={isSubmitting}
                 >
                   Отправить
-                </button>
+                </Button>
               </div>
             </form>
           )}
