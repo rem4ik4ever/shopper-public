@@ -1,23 +1,35 @@
-import { OnboardingFormProps } from '@components/onboarding/types'
-import { Button, Input } from '@components/ui'
-import { Field, useFormik } from 'formik'
+import { OnboardingFormProps } from '@components/onboarding/types';
+import { Button, Input } from '@components/ui';
+import { Field, useFormik } from 'formik';
+import { useOnboarding } from '../context';
+import { userInfoValidationSchema } from './validationSchema';
+import s from '../Onboarding.module.css';
+import { useEffect } from 'react';
 
 export const UserInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
+  const { userInfo, setUserInfo, setCompleteUserInfo } = useOnboarding();
   const formik = useFormik({
+    validationSchema: userInfoValidationSchema,
     initialValues: {
-      firstName: '',
-      lastName: '',
-      phone: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
+      ...userInfo,
     },
+    validateOnBlur: false,
+    validateOnChange: false,
     onSubmit: (values) => {
-      console.log({ values })
-      if (onNext) onNext()
+      setUserInfo(values);
+      setCompleteUserInfo(true);
+      if (onNext) onNext();
     },
-  })
-  const { values, handleChange } = formik
+  });
+  const { values, setFieldValue, errors } = formik;
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      setCompleteUserInfo(false);
+    }
+  }, [errors, setCompleteUserInfo]);
+  const handleChange = (field: string) => (val: any) => {
+    setFieldValue(field, val);
+  };
   return (
     <div className="max-w-[450px] mx-auto">
       <form
@@ -33,9 +45,10 @@ export const UserInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
             id="firstName"
             name="firstName"
             type="text"
-            onChange={handleChange}
+            onChange={handleChange('firstName')}
             value={values.firstName}
           />
+          <span className={s.validationError}>{errors.firstName}</span>
         </div>
         <div className="col-span-6">
           <label>Фамилия</label>
@@ -43,9 +56,10 @@ export const UserInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
             id="lastName"
             name="lastName"
             type="text"
-            onChange={handleChange}
+            onChange={handleChange('lastName')}
             value={values.lastName}
           />
+          <span className={s.validationError}>{errors.lastName}</span>
         </div>
         <div className="col-span-6">
           <label>Номер телефона</label>
@@ -53,9 +67,10 @@ export const UserInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
             id="phone"
             name="phone"
             type="text"
-            onChange={handleChange}
+            onChange={handleChange('phone')}
             value={values.phone}
           />
+          <span className={s.validationError}>{errors.phone}</span>
         </div>
         <div className="col-span-6">
           <label>Электронная почта</label>
@@ -63,29 +78,32 @@ export const UserInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
             id="email"
             name="email"
             type="text"
-            onChange={handleChange}
+            onChange={handleChange('email')}
             value={values.email}
           />
+          <span className={s.validationError}>{errors.email}</span>
         </div>
         <div className="col-span-12">
           <label>Пароль</label>
           <Input
             id="password"
             name="password"
-            type="text"
-            onChange={handleChange}
+            type="password"
+            onChange={handleChange('password')}
             value={values.password}
           />
+          <span className={s.validationError}>{errors.password}</span>
         </div>
         <div className="col-span-12">
           <label>Подтвердите пароль</label>
           <Input
             id="confirmPassword"
             name="confirmPassword"
-            type="text"
-            onChange={handleChange}
+            type="password"
+            onChange={handleChange('confirmPassword')}
             value={values.confirmPassword}
           />
+          <span className={s.validationError}>{errors.confirmPassword}</span>
         </div>
         <div className="flex flex-col md:flex-row md:justify-between text-center col-span-12">
           {!onBack && <div />}
@@ -98,5 +116,5 @@ export const UserInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};

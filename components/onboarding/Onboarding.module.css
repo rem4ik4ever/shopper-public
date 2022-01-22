@@ -30,3 +30,7 @@
 .completed {
   @apply bg-green text-white;
 }
+
+.validationError {
+  @apply text-red;
+}
