@@ -60,7 +60,7 @@ export const HeroCTA = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-2 justify-center">
             <input
-              className="border p-3 rounded-md min-w-[300px] focus:outline outline-accent1 text-typography"
+              className="border p-3 rounded-md min-w-[300px] focus:outline outline-accent1 text-typography bg-white"
               type="text"
               placeholder="Номер телефона - Ваше имя"
               value={email}
