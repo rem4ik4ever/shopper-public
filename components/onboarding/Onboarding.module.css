@@ -1,0 +1,36 @@
+.root {
+  @apply container mx-auto pt-16;
+}
+
+.step {
+  @apply p-3 h-12 w-12 rounded-full border flex justify-center items-center;
+}
+
+.lines::after {
+  position: absolute;
+  margin-left: 95px;
+  content: '';
+  width: 3rem;
+  border: 1px solid;
+  @apply border-accent-2;
+}
+.lines::before {
+  position: absolute;
+  margin-right: 95px;
+  content: '';
+  width: 3rem;
+  border: 1px solid;
+  @apply border-accent-2;
+}
+
+.selected {
+  @apply bg-blue text-white;
+}
+
+.completed {
+  @apply bg-accent1 text-white;
+}
+
+.validationError {
+  @apply text-red;
+}
