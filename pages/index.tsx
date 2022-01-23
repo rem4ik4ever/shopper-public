@@ -20,7 +20,6 @@ const Home: NextPage = function () {
     ev.preventDefault();
     switch (section) {
       case 'platform':
-        console.log({ aboutPlatformRef });
         if (aboutPlatformRef.current) {
           const elm = aboutPlatformRef.current as HTMLDivElement;
           elm.scrollIntoView(scrollOptions);

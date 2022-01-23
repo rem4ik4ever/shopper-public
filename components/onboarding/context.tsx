@@ -141,45 +141,37 @@ function onboardingReducer(state: State, action: Action): State {
 
 export const OnboardingProvider: FC = (props) => {
   const [state, dispatch] = React.useReducer(onboardingReducer, initialState);
-  const debugSpatch = useCallback(
-    (value: Action) => {
-      console.log('dispatch', value);
-      dispatch(value);
-    },
-    [dispatch]
-  );
 
   const setUserInfo = useCallback(
-    (value: State['userInfo']) => debugSpatch({ type: 'SET_USER_INFO', value }),
-    [debugSpatch]
+    (value: State['userInfo']) => dispatch({ type: 'SET_USER_INFO', value }),
+    [dispatch]
   );
   const setStoreInfo = useCallback(
-    (value: State['storeInfo']) =>
-      debugSpatch({ type: 'SET_STORE_INFO', value }),
-    [debugSpatch]
+    (value: State['storeInfo']) => dispatch({ type: 'SET_STORE_INFO', value }),
+    [dispatch]
   );
 
   const setCompleteStoreInfo = useCallback(
     (complete: boolean) =>
-      debugSpatch({ type: 'SET_COMPLETE_STORE_INFO', complete }),
-    [debugSpatch]
+      dispatch({ type: 'SET_COMPLETE_STORE_INFO', complete }),
+    [dispatch]
   );
   const setCompleteUserInfo = useCallback(
     (complete: boolean) =>
-      debugSpatch({ type: 'SET_COMPLETE_USER_INFO', complete }),
-    [debugSpatch]
+      dispatch({ type: 'SET_COMPLETE_USER_INFO', complete }),
+    [dispatch]
   );
 
   const transitionStoreState = useCallback(
     (state: StoreCreateEnum) =>
-      debugSpatch({ type: 'TRANSITION_STORE_STATE', state }),
-    [debugSpatch]
+      dispatch({ type: 'TRANSITION_STORE_STATE', state }),
+    [dispatch]
   );
 
   const transitionOnboardingStep = useCallback(
     (step: OnboardingStepEnum) =>
-      debugSpatch({ type: 'TRANSITION_ONBOARDING_STEP', step }),
-    [debugSpatch]
+      dispatch({ type: 'TRANSITION_ONBOARDING_STEP', step }),
+    [dispatch]
   );
 
   const value = useMemo(
@@ -208,7 +200,6 @@ export const OnboardingProvider: FC = (props) => {
 
 export const useOnboarding = () => {
   const context = React.useContext(OnboardingContext);
-  console.log({ context });
   if (context === undefined) {
     throw new Error(`useOnboarding must be used within a OnboardingProvider`);
   }

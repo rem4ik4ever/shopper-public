@@ -5,6 +5,7 @@ import { fetcher } from '../fetcher';
 import { localStoragePreset } from '../utils';
 
 export const CreationScreen = () => {
+  const [error, setError] = useState(undefined);
   const {
     userInfo,
     storeInfo,
@@ -14,8 +15,9 @@ export const CreationScreen = () => {
   } = useOnboarding();
   useEffect(() => {
     transitionStoreState(StoreCreateEnum.PROCESSING);
+    setError(undefined);
     fetcher({
-      url: `${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}/onboarding`,
+      url: `${process.env.NEXT_PUBLIC_HOST_API}/onboarding`,
       method: 'POST',
       body: {
         admin: userInfo,
@@ -23,10 +25,9 @@ export const CreationScreen = () => {
       },
     }).then((result) => {
       if (['email_taken', 'domain_taken'].includes(result.message)) {
-        console.log('Validation error');
+        setError(result.message);
         transitionStoreState(StoreCreateEnum.FAILED);
       } else {
-        console.log('Store created!');
         transitionStoreState(StoreCreateEnum.CREATED);
         localStoragePreset();
       }
@@ -48,10 +49,18 @@ export const CreationScreen = () => {
     return (
       <div className="flex flex-col items-center p-8">
         <h1 className="text-4xl my-6">Что-то пошло не так.</h1>
-        <p className="mb-6">
-          Пожалуйста попробуйте еще раз или обратитесь к администрации сайта за
-          помощью
-        </p>
+        {error === 'email_taken' && (
+          <p className="mb-6">Адрес электронной почты уже занят</p>
+        )}
+        {error === 'domain_taken' && (
+          <p className="mb-6">Домен уже занят. Пожалуйста выберите другой</p>
+        )}
+        {!error && (
+          <p className="mb-6">
+            Пожалуйста попробуйте еще раз или обратитесь к администрации сайта
+            за помощью
+          </p>
+        )}
         <Button
           variant="ghost"
           onClick={() => {
