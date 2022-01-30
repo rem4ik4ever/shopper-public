@@ -23,20 +23,17 @@ export const CreationScreen = () => {
         admin: userInfo,
         store: storeInfo,
       },
-    })
-      .then((result) => {
-        if (['email_taken', 'domain_taken'].includes(result.message)) {
-          setError(result.message);
-          transitionStoreState(StoreCreateEnum.FAILED);
-        } else {
-          transitionStoreState(StoreCreateEnum.CREATED);
-          localStoragePreset();
-        }
-      })
-      .catch((err) => {
-        console.error(err);
+    }).then((result) => {
+      if (result.statusCode !== 200) {
         transitionStoreState(StoreCreateEnum.FAILED);
-      });
+      } else if (['email_taken', 'domain_taken'].includes(result.message)) {
+        setError(result.message);
+        transitionStoreState(StoreCreateEnum.FAILED);
+      } else {
+        transitionStoreState(StoreCreateEnum.CREATED);
+        localStoragePreset();
+      }
+    });
   }, []);
   if (storeCreatedState === StoreCreateEnum.CREATED) {
     return (

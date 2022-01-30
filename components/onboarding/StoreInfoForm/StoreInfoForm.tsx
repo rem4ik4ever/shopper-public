@@ -16,9 +16,9 @@ export const StoreInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
     validateOnChange: false,
     validateOnBlur: false,
     onSubmit: (values) => {
-      if (onNext) onNext();
       setStoreInfo(values);
       setCompleteStoreInfo(true);
+      if (onNext) onNext();
     },
   });
   const { values, setFieldValue, errors } = formik;
