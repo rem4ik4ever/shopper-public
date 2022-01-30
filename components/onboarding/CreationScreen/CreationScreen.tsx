@@ -24,10 +24,10 @@ export const CreationScreen = () => {
         store: storeInfo,
       },
     }).then((result) => {
-      if (result.statusCode !== 200) {
-        transitionStoreState(StoreCreateEnum.FAILED);
-      } else if (['email_taken', 'domain_taken'].includes(result.message)) {
+      if (['email_taken', 'domain_taken'].includes(result.message)) {
         setError(result.message);
+        transitionStoreState(StoreCreateEnum.FAILED);
+      } else if (result.message !== 'store_created') {
         transitionStoreState(StoreCreateEnum.FAILED);
       } else {
         transitionStoreState(StoreCreateEnum.CREATED);
