@@ -6,6 +6,11 @@ import { storeInfoValidationSchema } from './validationSchema';
 import s from '../Onboarding.module.css';
 import { useEffect } from 'react';
 
+function matchExact(r: RegExp, str: string) {
+  var match = str.match(r);
+  return match && str === match[0];
+}
+
 export const StoreInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
   const { storeInfo, setStoreInfo, setCompleteStoreInfo } = useOnboarding();
   const formik = useFormik({
@@ -13,7 +18,7 @@ export const StoreInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
       ...storeInfo,
     },
     validationSchema: storeInfoValidationSchema,
-    validateOnChange: false,
+    validateOnChange: true,
     validateOnBlur: false,
     onSubmit: (values) => {
       setStoreInfo(values);
@@ -57,7 +62,9 @@ export const StoreInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
             id="domain"
             name="domain"
             type="text"
-            onChange={handleChange('domain')}
+            onChange={(val) => {
+              handleChange('domain')(val.toLowerCase());
+            }}
             value={values.domain}
           />
           <div>{values.domain || 'ваше-название'}.shopper.kg</div>
