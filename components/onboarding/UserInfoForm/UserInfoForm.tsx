@@ -5,6 +5,8 @@ import { useOnboarding } from '../context';
 import { userInfoValidationSchema } from './validationSchema';
 import s from '../Onboarding.module.css';
 import { useEffect } from 'react';
+import InputMask, { Props } from 'react-input-mask';
+import inputStyle from '@components/ui/Input/Input.module.css';
 
 export const UserInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
   const { userInfo, setUserInfo, setCompleteUserInfo } = useOnboarding();
@@ -63,11 +65,17 @@ export const UserInfoForm = ({ onBack, onNext }: OnboardingFormProps) => {
         </div>
         <div className="col-span-6">
           <label>Номер телефона</label>
-          <Input
+          <InputMask
+            className={inputStyle.root}
+            mask="(999)-99-99-99"
+            maskPlaceholder="(___)-__-__-__"
+            placeholder="(555)-55-55-55"
             id="phone"
             name="phone"
             type="text"
-            onChange={handleChange('phone')}
+            onChange={(ev) => {
+              handleChange('phone')(ev.target.value);
+            }}
             value={values.phone}
           />
           <span className={s.validationError}>{errors.phone}</span>
